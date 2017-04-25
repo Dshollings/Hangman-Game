@@ -1,0 +1,112 @@
+/*
+bgcolor: #4C4C4C
+txtcolor: #FFA72B
+hfcolor: #0A0000
+accent: #FFE5C0
+shadows: #FF3C5C 
+*/
+
+h1 {
+	font-size: 24px;
+}
+
+header, section, footer{
+	color: #FFA72B;
+	font-family: 'Poller One', cursive;
+	text-align: center;
+	text-shadow: 1px 1px #FF3C5C;
+}
+
+section, header, footer, .logo, .col-container {
+	width: 100%;
+}
+
+section, .col-container, .col-3, .col-2{
+	float: left;
+	background-color: #4C4C4C;
+}
+
+header, footer{
+	background-color: #0A0000;
+	display: block;
+	height: 60px;
+	padding: 10px;
+}
+
+section {
+	float: left;
+}
+
+.col-container {
+    width: 100%;
+}
+
+.col-3 {
+	width: 33.333%;
+}
+
+.col-2 {
+	width: 50%;
+}
+
+#game {
+	/*display: block;*/
+	border: 3px double #FF3C5C;
+	border-radius: 6px;
+	margin: 10px;
+}
+
+#hold {
+	float: left;
+	clear: both;
+	width: 100%;
+	text-align: center;
+}
+
+#alph li{
+  background-color: #FFE5C0;
+  color: #FFA72B;
+  border: solid 1px #FF3C5C;
+  text-decoration:none;
+  cursor:pointer;
+  font-size: 12px;
+  padding:10px 10px;
+  width: 5%;
+  margin: 10px;
+  float: left;
+}
+
+#alph li:hover{
+      background-color: #FFA72B;
+      border: dotted 1px #FF3C5C;
+      color: #FFE5C0;
+}
+
+button{
+  background-color: #FFE5C0;
+  color: #FFA72B;
+  border: solid 1px #FF3C5C;
+  text-decoration:n one;
+  cursor: pointer;
+  font-size: 12px;
+  padding: 10px 10px;
+  width: 5%;
+  margin: 10px;
+  float: left;
+}
+
+button:hover{
+  background-color: :#FFA72B;
+  border: dotted 1px #FF3C5C;
+  color: #FFE5C0;
+}
+
+.active {
+	color: #FF3C5C;
+	background-color: #4C4C4C;
+}
+
+footer {
+	clear: both;
+	font-size: 10px;
+}
