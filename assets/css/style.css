@@ -1,11 +1,3 @@
-/*
-bgcolor: #4C4C4C
-txtcolor: #FFA72B
-hfcolor: #0A0000
-accent: #FFE5C0
-shadows: #FF3C5C 
-*/
-
 h1 {
 	font-size: 24px;
 }
@@ -74,6 +66,7 @@ section {
   width: 5%;
   margin: 10px;
   float: left;
+  display: block;
 }
 
 #alph li:hover{
@@ -82,17 +75,41 @@ section {
       color: #FFE5C0;
 }
 
+/*li #letter */
+#alph .used {
+	color: #FF3C5C ;
+	background-color: #4C4C4C;
+}
+
+#alph .hide {
+	visibility: hidden;
+}
+
+#tray ul{
+	 /*list-style-type: none;*/
+	 width: 100%;
+}
+
+.guess{
+	float: left;
+	display: inline;
+	text-align: center;
+	padding: 4px;
+	font-family: 'Raleway', sans-serif;
+}
+
 button{
   background-color: #FFE5C0;
   color: #FFA72B;
   border: solid 1px #FF3C5C;
-  text-decoration:n one;
+  text-decoration: none;
   cursor: pointer;
   font-size: 12px;
   padding: 10px 10px;
   width: 5%;
-  margin: 10px;
-  float: left;
+  margin: auto;
+  /*float: left;*/
+  display: block;
 }
 
 button:hover{
@@ -101,10 +118,6 @@ button:hover{
   color: #FFE5C0;
 }
 
-.active {
-	color: #FF3C5C;
-	background-color: #4C4C4C;
-}
 
 footer {
 	clear: both;

@@ -7,7 +7,7 @@
   
   <link rel = "stylesheet"type = "text/css" href = "assets/css/reset.css"/>
   <link rel = "stylesheet"type = "text/css" href = "assets/css/style.css"/>
-  <link href="https://fonts.googleapis.com/css?family=Poller+One" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Poller+One|Raleway" rel="stylesheet">
   <script src="https://use.fontawesome.com/321a08e92c.js"></script>
   <script type="text/javascript" src="assets/javascript/game.js"></script>
 
@@ -20,34 +20,36 @@
 	<container class = "col-container">	
 		<section class= "col-3" id= "wl">
 			<img class="logo" src="assets/images/SW-Logo.png" alt="Star Wars Logo">
-			<div class= "col-2" id= "wins">
-				<h2>Wins: </h2>
+			<div class= "col-2">
+				<h2>Wins </h2>
 				<hr>
-				...Placeholder...
+				<div class="score" id="winDisplay"></div>
 			</div>
 			<div class= "col-2" id= "losses">
-				<h2>Losses: </h2>
+				<h2>Losses </h2>
 				<hr>
-				...Placeholder...
+				<div class="score" id="lossDisplay"></div>
 			</div>
 		</section>
-		<section class="col-3">
+		<section class="col-3" id= "mid-col">
 			<img class="logo" src="assets/images/SW-Logo.png" alt="Star Wars Logo">
 			<h2>Pick a letter to get started!</h2>
 			<container id= "game">
-				<div id= "hold"></div>
+				<div id= "tray"></div>
 			</container>
-			 <button id="reset">Play again</button>
+			<!-- Add Reset Message -->
+			<button id="reset">Play again</button>
+
 		</section>
 		<section class="col-3" id= "guesses">
 			<img class="logo" src="assets/images/SW-Logo.png" alt="Star Wars Logo">
 			<h3>Guesses Remaining:</h3>
 			<hr>
-			<p id= "mygRemain"></p>
+			<p id= "remaining"></p>
 			<br>
 			<h3>Letters</h3>
 			<hr>
-			<div id="buttons"></div>
+			<div id="keyDisplay"></div>
 		</section>
 	</container>
 	<footer>
