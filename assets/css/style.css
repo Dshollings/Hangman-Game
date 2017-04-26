@@ -41,18 +41,8 @@ section {
 	width: 50%;
 }
 
-#game {
-	/*display: block;*/
-	border: 3px double #FF3C5C;
-	border-radius: 6px;
-	margin: 10px;
-}
-
-#hold {
-	float: left;
-	clear: both;
-	width: 100%;
-	text-align: center;
+#remaining {
+	font-family: 'Raleway', sans-serif;
 }
 
 #alph li{
@@ -67,6 +57,7 @@ section {
   margin: 10px;
   float: left;
   display: block;
+  border-radius: 3px;
 }
 
 #alph li:hover{
@@ -77,21 +68,35 @@ section {
 
 /*li #letter */
 #alph .used {
-	color: #FF3C5C ;
-	background-color: #4C4C4C;
-}
-
-#alph .hide {
 	visibility: hidden;
 }
 
+hr {
+	border-color: #FF3C5C;
+}
+
+#game {
+	display: block;
+	border: 3px double #FF3C5C;
+	border-radius: 6px;
+	margin: 10px;
+	width: 95%;
+	min-height: 150px;
+}
+
 #tray ul{
-	 /*list-style-type: none;*/
+	 /*display: block;*/
 	 width: 100%;
+	 margin: auto;
+	 height: 100%;
+	 padding-top: 65px;
+}
+
+#solution {
+	padding: auto;
 }
 
 .guess{
-	float: left;
 	display: inline;
 	text-align: center;
 	padding: 4px;
@@ -106,16 +111,15 @@ button{
   cursor: pointer;
   font-size: 12px;
   padding: 10px 10px;
-  width: 5%;
+  width: 20%;
   margin: auto;
-  /*float: left;*/
   display: block;
 }
 
 button:hover{
   background-color: :#FFA72B;
   border: dotted 1px #FF3C5C;
-  color: #FFE5C0;
+  color: #FF3C5C;
 }
 
 

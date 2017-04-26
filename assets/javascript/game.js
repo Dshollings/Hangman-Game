@@ -18,7 +18,7 @@ window.onload = function () {
   var alph = ['a', 'b', 'c', 'd', 'e', 'f', 
   	'g', 'h','i', 'j', 'k', 'l', 'm', 'n', 
   	'o', 'p', 'q', 'r', 's','t', 'u', 'v', 
-  	'w', 'x', 'y', 'z', '-'];
+  	'w', 'x', 'y', 'z'];
 
   console.log("# of letters= " + alph.length)
 
@@ -34,29 +34,29 @@ window.onload = function () {
   var showWins = document.getElementById("wins");
   var losses = 0;
   var showLosses = document.getElementById("losses");
-  var audio;
+  // var audio;
   // var playCount = 0;
-  var pointGuard;
+  var pointGuard = 0;
 
 
 
-  // create alphabet buttons
-  var buttons = function () {
-    buttonList = document.getElementById("keys")
+  // create alphabet keys
+  var keys = function () {
+    keyList = document.getElementById("keyDisplay")
     //creates ul for alphabet 
     letters = document.createElement("ul");
     // loop fills ul letters with alphabet
     for (var i = 0; i < alph.length; i++) {
       letters.id = "alph";
-      //create button for current letter
+      //create key for current letter
       listLetter = document.createElement("li");
       listLetter.id = "letter";
       // defines listLetter with current letter
       listLetter.innerHTML = alph[i];
-      //initiates function to respond to button clicks
+      //initiates function to respond to key clicks
       points();
-      //adds ul letters to buttonList
-      buttonList.appendChild(letters);
+      //adds ul letters to keyList
+      keyList.appendChild(letters);
       //adds current letter to ul letters
       letters.appendChild(listLetter);
     }
@@ -64,12 +64,12 @@ window.onload = function () {
   }
   //counters for hits and misses
   points = function () {
-    // This happens when you click a button
+    // This happens when you click a key
     listLetter.onclick = function () {
       guess = (this.innerHTML);
-      //changes button appearance on click
+      //changes key appearance on click
       this.setAttribute("class", "used")
-      //disables button
+      //disables key
       this.onclick = null;
       //loop checks guess against letters in word
       for (var i = 0; i < word.length; i++) {
@@ -78,7 +78,7 @@ window.onload = function () {
           //creates array of correct guesses
           guesses[i].innerHTML = guess;
           //adds a point
-          correct++;
+          count++;
           endGame();
         }
       }
@@ -99,7 +99,7 @@ window.onload = function () {
     //
     for (var i = 0; i <word.length; i++) {
       correct.setAttribute("id", "solution");
-       guess = document.createElement("li");
+      guess = document.createElement("li");
       guess.setAttribute("class", "guess");
       //space may need to be a dash
       //identifies spaces
@@ -121,6 +121,7 @@ window.onload = function () {
 
 
   endGame = function () {
+    //check for loss scenario
     if (remaining < 1) {
       showRemaining.innerHTML = "The Rebellion has been crushed";
       killKeys();
@@ -128,11 +129,14 @@ window.onload = function () {
       // song();
       //losecounter
       if (pointGuard = 0){
+        losses++;
         showLosses.innerHTML = losses;
         showLosses();
+        console.log(losses);
         pointGuard++;
       }
     }
+    // check for win scenario
     for (var i = 0; i < guesses.length; i++) {
       if ((count + space) >= word.length){
         showRemaining.innerHTML = "You defeated the Empire!";
@@ -171,6 +175,7 @@ window.onload = function () {
     keys();
     output();
     endGame();
+    console.log(wins);
   }
   play();
   // Reset
@@ -182,28 +187,6 @@ window.onload = function () {
     play();
   }
 }
-
-
-
-
-
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
