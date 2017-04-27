@@ -37,6 +37,12 @@ window.onload = function () {
   // var audio;
   // var playCount = 0;
   var pointGuard = 0;
+  var w = document.createElement("li");
+  var l = document.createElement("li");
+  var winContent = document.createElement("X");
+  var listLetter;
+  var letters;
+  
 
 
 
@@ -124,34 +130,22 @@ window.onload = function () {
     //check for loss scenario
     if (remaining < 1) {
       showRemaining.innerHTML = "The Rebellion has been crushed";
-      killKeys();
-      // audio = new Audio("assets/audio/imperial_march.m4a");
-      // song();
-      //losecounter
-      if (pointGuard = 0){
-        losses++;
-        showLosses.innerHTML = losses;
-        showLosses();
-        console.log(losses);
-        pointGuard++;
-      }
+      addLoss();
+      reset();
     }
     // check for win scenario
-    for (var i = 0; i < guesses.length; i++) {
+    // for (var i = 0; i < guesses.length; i++) {
       if ((count + space) >= word.length){
-        showRemaining.innerHTML = "You defeated the Empire!";
-        killKeys();
-        // audio = new Audio("assets/audio/swtheme.m4a");
-        // song();
-        //wincounter
-        if (pointGuard = 0){
-            wins++;
-            showWins.innerHTML = wins;
-            showWins();
-            pointGuard++;
-        }
+          showRemaining.innerHTML = "You defeated the Empire!";
+          killKeys();
+          wins++;
+          w.innerHTML += "X <br>";
+          showWins.appendChild(w);
+          console.log("wins: " + wins);
+          message.innerHTML = null;
+          reset();
       }
-    }   
+    // }   
   }
   // song = function () {
   //   if (playCount = 0){
@@ -160,7 +154,7 @@ window.onload = function () {
   //       }
   // }
   killKeys = function () {
-    listLetter.onclick = null;
+    letter.onclick = null;
   }
   // Play
   play = function () {
@@ -172,6 +166,7 @@ window.onload = function () {
     showRemaining.innerHTML = remaining;
     count = 0;
     space = 0;
+    // pointGuard = 0;
     keys();
     output();
     endGame();
@@ -179,12 +174,32 @@ window.onload = function () {
   }
   play();
   // Reset
-  document.getElementById("reset").onclick = function() {
+
+  var reset = function(){
     correct.parentNode.removeChild(correct);
     letters.parentNode.removeChild(letters);
     letters = null;
-    pointGuard = 0;
     play();
+  }
+
+  resetClick = function(){
+    addLoss();
+    reset();
+  }
+  
+  var addLoss = function(){
+    losses++;
+    l.innerHTML += "X <br>";
+    showLosses.appendChild(l)
+    console.log("losses: " + losses);
+    var message = document.getElementById("message");
+    message.innerHTML = "The word was: \"" + word + "\"";
+    console.log("loss");
+  }
+  
+  //activate reset button and prevent cheating by adding a loss
+  document.getElementById("reset").onclick = function(){
+    resetClick();
   }
 }
 

@@ -41,33 +41,37 @@ section {
 	width: 50%;
 }
 
+.score li{
+	display: block;
+}
+
 #remaining {
 	font-family: 'Raleway', sans-serif;
 }
 
 #alph li{
-  background-color: #FFE5C0;
-  color: #FFA72B;
-  border: solid 1px #FF3C5C;
-  text-decoration:none;
-  cursor:pointer;
-  font-size: 12px;
-  padding:10px 10px;
-  width: 5%;
-  margin: 10px;
-  float: left;
-  display: block;
-  border-radius: 3px;
+	background-color: #FFE5C0;
+	color: #FFA72B;
+	border: solid 1px #FF3C5C;
+	text-decoration:none;
+	cursor:pointer;
+	font-size: 12px;
+	padding:10px 10px;
+	width: 5%;
+	margin: 10px;
+	float: left;
+	display: block;
+	border-radius: 3px;
 }
 
 #alph li:hover{
-      background-color: #FFA72B;
-      border: dotted 1px #FF3C5C;
-      color: #FFE5C0;
+    background-color: #FFA72B;
+    border: dotted 1px #FF3C5C;
+    color: #FFE5C0;
 }
 
 /*li #letter */
-#alph .used {
+.used {
 	visibility: hidden;
 }
 
@@ -85,11 +89,11 @@ hr {
 }
 
 #tray ul{
-	 /*display: block;*/
-	 width: 100%;
-	 margin: auto;
-	 height: 100%;
-	 padding-top: 65px;
+	/*display: block;*/
+	width: 100%;
+	margin: auto;
+	height: 100%;
+	padding-top: 65px;
 }
 
 #solution {
@@ -104,24 +108,28 @@ hr {
 }
 
 button{
-  background-color: #FFE5C0;
-  color: #FFA72B;
-  border: solid 1px #FF3C5C;
-  text-decoration: none;
-  cursor: pointer;
-  font-size: 12px;
-  padding: 10px 10px;
-  width: 20%;
-  margin: auto;
-  display: block;
+	background-color: #FFE5C0;
+	color: #FFA72B;
+	border: solid 1px #FF3C5C;
+	text-decoration: none;
+	cursor: pointer;
+	font-size: 12px;
+	padding: 10px 10px;
+	width: 20%;
+	margin: auto;
+	display: block;
 }
 
 button:hover{
-  background-color: :#FFA72B;
-  border: dotted 1px #FF3C5C;
-  color: #FF3C5C;
+  	background-color: :#FFA72B;
+  	border: dotted 1px #FF3C5C;
+  	color: #FF3C5C;
 }
 
+#message {
+	padding: 15px;
+	font-family: 'Raleway', sans-serif;
+}
 
 footer {
 	clear: both;
