@@ -34,8 +34,6 @@ window.onload = function () {
   var showWins = document.getElementById("wins");
   var losses = 0;
   var showLosses = document.getElementById("losses");
-  // var audio;
-  // var playCount = 0;
   var pointGuard = 0;
   var w = document.createElement("li");
   var l = document.createElement("li");
@@ -143,6 +141,12 @@ window.onload = function () {
           showWins.appendChild(w);
           console.log("wins: " + wins);
           message.innerHTML = null;
+          if (words.length <= 1){
+            hardReset();
+            message.innerHTML = "Game Over. You Win! <br> <img class ='endimage' src='assets/images/trooper.jpg'/>";
+            var audio = new Audio('assets/audio/swtheme.m4a');
+            audio.play();
+          }
           reset();
       }
     // }   
@@ -158,7 +162,10 @@ window.onload = function () {
   }
   // Play
   play = function () {
-    word = words[Math.floor(Math.random() * words.length)];
+    var index = Math.floor(Math.random() * words.length)
+    word = words[index];
+    words.splice(index, 1);
+    console.log("# of words= " + words.length);
     word = word.replace(/\s/g, " ");
     console.log("The word is: " + word);
     guesses = [ ];
@@ -166,13 +173,12 @@ window.onload = function () {
     showRemaining.innerHTML = remaining;
     count = 0;
     space = 0;
-    // pointGuard = 0;
     keys();
     output();
     endGame();
-    console.log(wins);
   }
   play();
+ 
   // Reset
 
   var reset = function(){
@@ -180,6 +186,11 @@ window.onload = function () {
     letters.parentNode.removeChild(letters);
     letters = null;
     play();
+  }
+
+  var hardReset = function(){
+    showWins.innerHTML = null;
+    showLosses.innerHTML = null;
   }
 
   resetClick = function(){
@@ -195,6 +206,12 @@ window.onload = function () {
     var message = document.getElementById("message");
     message.innerHTML = "The word was: \"" + word + "\"";
     console.log("loss");
+    if (words.length <= 1){
+      hardReset();
+      message.innerHTML = "Game Over. You Lose! <br> <img class ='endimage' src='assets/images/Carbonite.jpg'/>";
+      var audio = new Audio('assets/audio/imperial_march.m4a');
+      audio.play();
+    }
   }
   
   //activate reset button and prevent cheating by adding a loss
