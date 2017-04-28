@@ -2,6 +2,10 @@ h1 {
 	font-size: 24px;
 }
 
+h2 {
+	font-size: 18px;
+}
+
 header, section, footer{
 	color: #FFA72B;
 	font-family: 'Poller One', cursive;
@@ -62,6 +66,8 @@ section {
 	float: left;
 	display: block;
 	border-radius: 3px;
+	font-family: "Raleway";
+	text-shadow: none;
 }
 
 #alph li:hover{
@@ -129,6 +135,10 @@ button:hover{
 #message {
 	padding: 15px;
 	font-family: 'Raleway', sans-serif;
+}
+
+.endImage {
+	width: 100%;e
 }
 
 footer {

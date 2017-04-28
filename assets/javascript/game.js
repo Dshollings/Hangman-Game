@@ -1,6 +1,10 @@
 window.onload = function () {
 
-  var words = ["princess leia", "luke skywalker", 
+  
+  var words;
+
+  var makeWords = function(){
+    words = ["princess leia", "luke skywalker", 
     "lando calrissian", "han solo", "chewbacca", 
     "darth vader", "boba fett", "jabba the hutt", 
     "obi wan kenobi", "emperor palpatine", "yoda", 
@@ -11,6 +15,9 @@ window.onload = function () {
     "death star", "rebel alliance", "empire", 
     "empire strikes back", "a new hope", 
     "return of the jedi"];
+  }
+
+  makeWords();
 
   console.log("# of words= " + words.length)
 
@@ -37,7 +44,6 @@ window.onload = function () {
   var pointGuard = 0;
   var w = document.createElement("li");
   var l = document.createElement("li");
-  var winContent = document.createElement("X");
   var listLetter;
   var letters;
   
@@ -70,6 +76,8 @@ window.onload = function () {
   points = function () {
     // This happens when you click a key
     listLetter.onclick = function () {
+      var prompt = document.getElementById("pickPrompt");
+      prompt.innerHTML = "Pick Another Letter";
       guess = (this.innerHTML);
       //changes key appearance on click
       this.setAttribute("class", "used")
@@ -131,35 +139,40 @@ window.onload = function () {
       addLoss();
       reset();
     }
-    // check for win scenario
-    // for (var i = 0; i < guesses.length; i++) {
-      if ((count + space) >= word.length){
-          showRemaining.innerHTML = "You defeated the Empire!";
-          killKeys();
-          wins++;
-          w.innerHTML += "X <br>";
-          showWins.appendChild(w);
-          console.log("wins: " + wins);
-          message.innerHTML = null;
-          if (words.length <= 1){
-            hardReset();
-            message.innerHTML = "Game Over. You Win! <br> <img class ='endimage' src='assets/images/trooper.jpg'/>";
-            var audio = new Audio('assets/audio/swtheme.m4a');
-            audio.play();
-          }
-          reset();
+   
+    if ((count + space) >= word.length){
+      showRemaining.innerHTML = "You defeated the Empire!";
+      wins++;
+      w.innerHTML += "X <br>";
+      showWins.appendChild(w);
+      console.log("wins: " + wins);
+      message.innerHTML = null;
+      if (wins >= 5){
+        hardReset();
+        message.innerHTML = "Game Over. You Win! <br> <img class ='endImage' src='assets/images/trooper.jpg'/>";
+        var audio = new Audio('assets/audio/swtheme.m4a');
+        audio.play();
       }
-    // }   
+      reset();
+    }
+    
   }
-  // song = function () {
-  //   if (playCount = 0){
-  //       audio.play();
-  //       playCount++;
-  //       }
-  // }
-  killKeys = function () {
-    letter.onclick = null;
+  var addLoss = function(){
+    losses++;
+    l.innerHTML += "X <br>";
+    showLosses.appendChild(l)
+    console.log("losses: " + losses);
+    var message = document.getElementById("message");
+    message.innerHTML = "The word was: \"" + word + "\"";
+    console.log("loss");
+    if (losses >= 5){
+      hardReset();
+      message.innerHTML = "Game Over. You Lose! <br> <img class ='endImage' src='assets/images/Carbonite.jpg'/>";
+      var audio = new Audio('assets/audio/imperial_march.m4a');
+      audio.play();
+    }
   }
+
   // Play
   play = function () {
     var index = Math.floor(Math.random() * words.length)
@@ -187,36 +200,22 @@ window.onload = function () {
     letters = null;
     play();
   }
-
-  var hardReset = function(){
-    showWins.innerHTML = null;
-    showLosses.innerHTML = null;
+  
+  
+  //activate reset button and prevent cheating by adding a loss
+  document.getElementById("reset").onclick = function(){
+    resetClick();
   }
 
   resetClick = function(){
     addLoss();
     reset();
   }
-  
-  var addLoss = function(){
-    losses++;
-    l.innerHTML += "X <br>";
-    showLosses.appendChild(l)
-    console.log("losses: " + losses);
-    var message = document.getElementById("message");
-    message.innerHTML = "The word was: \"" + word + "\"";
-    console.log("loss");
-    if (words.length <= 1){
-      hardReset();
-      message.innerHTML = "Game Over. You Lose! <br> <img class ='endimage' src='assets/images/Carbonite.jpg'/>";
-      var audio = new Audio('assets/audio/imperial_march.m4a');
-      audio.play();
+
+  var hardReset = function(){
+    document.getElementById("reset").onclick = function(){
+    location.reload();
     }
-  }
-  
-  //activate reset button and prevent cheating by adding a loss
-  document.getElementById("reset").onclick = function(){
-    resetClick();
   }
 }
 
