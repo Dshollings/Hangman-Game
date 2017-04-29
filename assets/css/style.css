@@ -120,8 +120,10 @@ button{
 	text-decoration: none;
 	cursor: pointer;
 	font-size: 12px;
-	padding: 5px 10px;
+	padding: 10px 10px;
 	width: 20%;
+	margin: auto;
+	display: block;
 }
 
 button:hover{
@@ -142,45 +144,4 @@ button:hover{
 footer {
 	clear: both;
 	font-size: 10px;
-	/*text-align: left;*/
 }
-
-.foot
-{
-	float: left;
-}
-
-.footreset{
-	float: right;
-}
-
-@media only screen and (max-width: 750px) {
-    .col-3 {
-    	width: 100%;
-    }
-    #wl .logo{
-    	display: none;
-    }
-
-    #guesses .logo{
-    	display: none;
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
